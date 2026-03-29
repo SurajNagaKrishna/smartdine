@@ -1,41 +1,45 @@
-const express  = require("express");
-const db       = require("../sql.js");
-const rout     = express.Router();
-const bcrypt   = require("bcrypt");
-const { signToken } = require("../middleware/auth");
+const express = require("express")
+const db = require("../sql.js")
+const rout = express.Router()
+const bcrypt = require("bcrypt")
 
-rout.post("/", async (req, res) => {
+rout.post('/', async (req, res) => {
     try {
-        const { uname, pass } = req.body;
+        const { uname, pass } = req.body
 
-        if (!uname || !pass)
-            return res.status(400).json({ message: "Username and password required" });
+        // basic validation
+        if (!uname || !pass) {
+            return res.status(400).json({ message: "Username and password required" })
+        }
 
-        const [q] = await db.query("SELECT * FROM data WHERE uname=?", [uname]);
+        let sql = "SELECT * FROM data WHERE uname=?"
+        const [q] = await db.query(sql, [uname])
 
-        if (q.length === 0)
-            return res.status(401).json({ message: "Invalid username or password" });
+        if (q.length === 0) {
+            return res.status(401).json({ message: "Invalid username or password" })
+        }
 
-        const user  = q[0];
-        const match = await bcrypt.compare(pass, user.password);
+        const user = q[0]
 
-        if (!match)
-            return res.status(401).json({ message: "Invalid username or password" });
+        // bcrypt compare
+        const match = await bcrypt.compare(pass, user.password)
 
-        // Issue JWT — expires in 8 hours
-        const token = signToken({ id: user.id, uname: user.uname, role: user.role });
+        if (!match) {
+            return res.status(401).json({ message: "Invalid username or password" })
+        }
 
+        // success — also send uname so frontend can store it
         return res.status(200).json({
             message: "Login successful",
-            token,
-            role:  user.role,
+            role: user.role,
             uname: user.uname
-        });
+        })
 
     } catch (err) {
-        console.error(err);
-        return res.status(500).json({ message: "Server error" });
+        console.error(err)
+        return res.status(500).json({ message: "Server error" })
     }
-});
+})
 
-module.exports = rout;
+// FIX: was "module.exports = routA" (routA is undefined → crash on startup)
+module.exports = rout
