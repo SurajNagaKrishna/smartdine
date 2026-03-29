@@ -1,6 +1,6 @@
-const path = require("path");
+const path    = require("path");
 const express = require("express");
-const app = express();
+const app     = express();
 require("dotenv").config();
 
 const db = require("./sql.js");
@@ -15,25 +15,16 @@ app.use("/order",    require("./routes/o.js"));
 app.use("/orders",   require("./routes/d.js"));
 app.use("/menu",     require("./routes/m.js"));
 app.use("/users",    require("./routes/users.js"));
-
-// FIX: bill route needs :id param — must mount with param so b.js can read req.params.id
 app.use("/bill/:id", require("./routes/b.js"));
 
 // ================= DELETE ORDER =================
 app.delete("/orderDone/:id", async (req, res) => {
-    // FIX: added role check
-    if (req.headers.role !== "chef" && req.headers.role !== "admin") {
-        return res.status(403).json({ message: "Forbidden" });
-    }
-
     const oid = req.params.id;
-
     try {
         await db.query("DELETE FROM order_items WHERE order_id=?", [oid]);
         await db.query("DELETE FROM orders WHERE id=?", [oid]);
         res.status(200).json({ message: "Order deleted" });
     } catch (err) {
-        // FIX: was no error handling — server would crash silently
         console.error(err);
         res.status(500).json({ message: "Failed to delete order" });
     }
@@ -52,6 +43,4 @@ app.use((err, req, res, next) => {
 
 // ================= SERVER =================
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

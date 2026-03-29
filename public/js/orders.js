@@ -1,4 +1,3 @@
-// ================= AUTH GUARD =================
 const role = localStorage.getItem("role");
 if (!role) window.location.href = "login.html";
 if (role !== "chef" && role !== "admin") {
@@ -9,7 +8,10 @@ let currentOrders = "";
 
 async function load() {
     try {
-        const a   = await apiFetch("/orders/dashboard");
+        const token = localStorage.getItem("token");
+        const a = await fetch("/orders/dashboard", {
+            headers: { "Authorization": `Bearer ${token}` }
+        });
         const res = await a.json();
 
         const newOrders = JSON.stringify(res);
@@ -34,15 +36,17 @@ async function load() {
         </div>`).join("");
 
     } catch (err) {
-        if (err.message !== "Unauthorized") {
-            document.getElementById("dboard").innerHTML = "<p style='color:#ef4444;text-align:center'>Error loading orders</p>";
-        }
+        console.error(err);
     }
 }
 
 async function orderDone(id) {
     try {
-        await apiFetch(`/orderDone/${id}`, { method: "DELETE" });
+        const token = localStorage.getItem("token");
+        await fetch(`/orderDone/${id}`, {
+            method: "DELETE",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
         load();
     } catch (err) {
         console.error(err);
