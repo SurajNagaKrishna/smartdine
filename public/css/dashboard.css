@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg: #080808;
+    --surface: #111111;
+    --surface2: #181818;
+    --accent: #ff4d00;
+    --accent2: #ff8c00;
+    --text: #f5f0eb;
+    --muted: #555;
+    --border: #1f1f1f;
+    --green: #22c55e;
+    --red: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+/* HEADER */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 50px;
+    letter-spacing: 5px;
+    background: linear-gradient(135deg, #fff, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.top-bar p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    background: var(--red);
+    color: white;
+    cursor: pointer;
+}
+
+/* NAV */
+.nav-links {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.nav-links a {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav-links a.active {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+}
+
+/* FORM */
+.add-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-row input,
+.form-row select {
+    flex: 1;
+    min-width: 150px;
+    padding: 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+}
+
+.form-row button {
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+    cursor: pointer;
+}
+
+/* MENU GRID */
+#dboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+/* MENU CARD */
+.menu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    transition: 0.3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-category {
+    font-size: 12px;
+    color: var(--accent2);
+    margin: 6px 0;
+}
+
+.menu-card button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--red);
+    background: transparent;
+    color: var(--red);
+    border-radius: 8px;
+}
+
+/* USERS */
+.users-wrapper {
+    margin-top: 30px;
+}
+
+.users-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.users-container {
+    margin-top: 15px;
+}
+
+/* USERS TOP */
+.users-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* BUTTON */
+.btn-add-user {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+    cursor: pointer;
+}
+
+/* USER CARD */
+.user-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 12px;
+}
+
+.user-name {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* INPUTS */
+.user-card input,
+.user-card select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text);
+}
+
+/* ACTIONS */
+.user-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.btn-save {
+    flex: 1;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border: none;
+    border-radius: 6px;
+    color: white;
+}
+
+.btn-delete {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--red);
+    background: transparent;
+    color: var(--red);
+    border-radius: 6px;
+}
+
+.btn-delete:disabled {
+    opacity: 0.4;
+}
+
+/* MSG */
+.msg {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.msg.success { color: var(--green); }
+.msg.error { color: var(--red); }
+/* ================= MENU CARD IMPROVED ================= */
+
+.menu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(255,77,0,0.15);
+}
+
+/* ITEM NAME */
+.menu-card b {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+/* CATEGORY BADGE */
+.card-category {
+    display: inline-block;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    color: var(--accent2);
+    width: fit-content;
+}
+
+/* ================= PRICE EDIT ================= */
+
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-row input {
+    width: 70px;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--accent2);
+    font-size: 14px;
+    outline: none;
+}
+
+.price-row input:focus {
+    border-color: var(--accent);
+}
+
+/* UPDATE BUTTON */
+.price-row button {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--accent2);
+    background: transparent;
+    color: var(--accent2);
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.price-row button:hover {
+    background: var(--accent2);
+    color: #000;
+}
+
+/* ================= DELETE BUTTON ================= */
+
+.menu-card button:last-child {
+    margin-top: 6px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--red);
+    background: transparent;
+    color: var(--red);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu-card button:last-child:hover {
+    background: rgba(239,68,68,0.1);
+}
+
+/* ================= INLINE MESSAGE ================= */
+
+.item-msg {
+    font-size: 12px;
+    min-height: 16px;
+    transition: 0.2s;
+}
+
+/* SUCCESS */
+.item-msg.success {
+    color: var(--green);
+}
+
+/* ERROR */
+.item-msg.error {
+    color: var(--red);
+}
+.role-dropdown {
+    padding: 8px;
+    border-radius: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 13px;
+}
+
+.role-dropdown:focus {
+    border-color: var(--accent);
+}
+
+/* user messages */
+.user-msg {
+    font-size: 12px;
+    min-height: 14px;
+}
+
+.user-msg.success {
+    color: #22c55e;
+}
+
+.user-msg.error {
+    color: #ef4444;
+}

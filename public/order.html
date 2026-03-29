@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu</title>
+<link rel="stylesheet" href="css/order.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Menu</h1>
+</header>
+
+<main id="menu-main">
+
+<!-- ================= NON VEG ================= -->
+<h2>Non-Veg</h2>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/biryani.jpg" alt="Chicken Biryani"></div>
+    <div class="item-info">
+        <h4>Chicken Biryani</h4>
+        <p class="price">₹350</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(0)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(0)">+</button>
+    </div>
+</div>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/fishfry.jpg" alt="Fish Fry"></div>
+    <div class="item-info">
+        <h4>Fish Fry</h4>
+        <p class="price">₹200</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(1)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(1)">+</button>
+    </div>
+</div>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/kebab.jpg" alt="Kebab"></div>
+    <div class="item-info">
+        <h4>Kebab</h4>
+        <p class="price">₹180</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(2)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(2)">+</button>
+    </div>
+</div>
+
+<!-- ================= VEG ================= -->
+<h2>Veg</h2>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/panneer.jpg" alt="Paneer Curry"></div>
+    <div class="item-info">
+        <h4>Paneer Curry</h4>
+        <p class="price">₹220</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(3)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(3)">+</button>
+    </div>
+</div>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/salad.jpg" alt="Salad"></div>
+    <div class="item-info">
+        <h4>Salad</h4>
+        <p class="price">₹90</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(4)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(4)">+</button>
+    </div>
+</div>
+
+<!-- ================= STARTERS ================= -->
+<h2>Starters</h2>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/fries.jpg" alt="French Fries"></div>
+    <div class="item-info">
+        <h4>French Fries</h4>
+        <p class="price">₹99</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(5)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(5)">+</button>
+    </div>
+</div>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/noodles.jpg" alt="Noodles"></div>
+    <div class="item-info">
+        <h4>Noodles</h4>
+        <p class="price">₹140</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(6)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(6)">+</button>
+    </div>
+</div>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/pasta.jpg" alt="Pasta"></div>
+    <div class="item-info">
+        <h4>Pasta</h4>
+        <p class="price">₹160</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(7)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(7)">+</button>
+    </div>
+</div>
+
+<!-- ================= PIZZA ================= -->
+<h2>Pizza</h2>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/Pepperoni Pizza.jpg" alt="Pepperoni Pizza"></div>
+    <div class="item-info">
+        <h4>Pepperoni Pizza</h4>
+        <p class="price">₹350</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(8)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(8)">+</button>
+    </div>
+</div>
+
+<!-- ================= BEVERAGES & DESSERTS ================= -->
+<h2>Beverages &amp; Desserts</h2>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/chococak.jpg" alt="Chocolate Cake"></div>
+    <div class="item-info">
+        <h4>Chocolate Cake</h4>
+        <p class="price">₹120</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(9)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(9)">+</button>
+    </div>
+</div>
+
+<div class="menu-item">
+    <div class="item-image"><img src="images/burger meal.jpeg" alt="Burger Meal"></div>
+    <div class="item-info">
+        <h4>Burger Meal</h4>
+        <p class="price">₹150</p>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(10)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(10)">+</button>
+    </div>
+</div>
+
+<!-- FIX: Thumbsup was index 0 (duplicate!) — corrected to index 11 -->
+<!-- ITEM 11 -->
+<div class="menu-item" data-category="Beverages">
+    <div class="item-image"><img src="images/download.jpg" alt="Thumbs Up"></div>
+    <div class="item-info">
+        <h4>Thumbs Up</h4>
+        <p class="price">₹80</p>
+        <small>Beverages</small>
+    </div>
+    <div class="item-qty">
+        <button onclick="Decrease(11)">-</button>
+        <span>0</span>
+        <button onclick="increaseQuantity(11)">+</button>
+    </div>
+</div>
+
+<p id="empty-msg" class="empty-msg"></p>
+
+<!-- ORDER BUTTON -->
+<button id="cart" onclick="submit()">Order</button>
+
+</main>
+
+<!-- ================= CONFIRM OVERLAY ================= -->
+<div id="confirm-overlay" class="confirm-overlay">
+    <div class="confirm-box">
+        <h2>Confirm Your Order</h2>
+
+        <table class="bill-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Unit Price</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="confirm-body"></tbody>
+        </table>
+
+        <div class="confirm-total" id="confirm-total"></div>
+
+        <div class="confirm-actions">
+            <button class="btn-cancel" onclick="cancelOrder()">Cancel</button>
+            <button class="btn-confirm" onclick="confirmOrder()">Confirm Order</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/1.js"></script>
+
+</body>
+</html>

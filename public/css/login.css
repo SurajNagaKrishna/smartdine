@@ -1,0 +1,121 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#141e30,#243b55);
+}
+
+.container{
+width:900px;
+height:500px;
+display:flex;
+background:white;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 20px 50px rgba(0,0,0,0.35);
+transition:0.3s;
+}
+
+.container:hover{ transform:translateY(-3px); }
+
+.left{
+flex:1;
+background:linear-gradient(135deg,#5f2c82,#49a09d);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+}
+
+.left img{ width:120px; margin-bottom:20px; }
+.left h1{ font-size:32px; margin-bottom:10px; }
+.left p{ font-size:14px; opacity:0.9; }
+
+.right{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#ffffff;
+}
+
+.form{
+width:70%;
+display:flex;
+flex-direction:column;
+}
+
+.form h2{ margin-bottom:25px; color:#333; }
+
+.form label{ margin-top:10px; font-size:14px; color:#555; }
+
+.form input{
+padding:12px;
+margin-top:5px;
+border:1px solid #ddd;
+border-radius:8px;
+outline:none;
+transition:0.2s;
+font-size:14px;
+}
+
+.form input:focus{
+border-color:#5f2c82;
+box-shadow:0 0 6px rgba(95,44,130,0.35);
+}
+
+.form button{
+margin-top:22px;
+padding:12px;
+border:none;
+border-radius:8px;
+background:linear-gradient(135deg,#5f2c82,#49a09d);
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.form button:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 18px rgba(0,0,0,0.25);
+}
+
+.register{ margin-top:15px; font-size:14px; text-align:center; }
+.register a{ color:#5f2c82; text-decoration:none; font-weight:600; }
+.register a:hover{ text-decoration:underline; }
+
+/* ========================= */
+/* RESPONSIVE                */
+/* ========================= */
+
+@media(max-width:768px){
+    body{ align-items:flex-start; padding:20px; height:auto; min-height:100vh; }
+    .container{
+        width:100%;
+        height:auto;
+        flex-direction:column;
+    }
+    .left{ padding:30px 20px; }
+    .left img{ width:80px; }
+    .left h1{ font-size:24px; }
+    .right{ padding:30px 20px; }
+    .form{ width:90%; }
+}
+
+@media(max-width:480px){
+    .left h1{ font-size:20px; }
+    .form input{ padding:10px; font-size:13px; }
+    .form button{ font-size:14px; }
+}

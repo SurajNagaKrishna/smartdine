@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<link rel="stylesheet" href="css/register.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- AUTH GUARD: runs before anything renders -->
+<script>
+    const _role = localStorage.getItem("role");
+    if (!_role || _role !== "admin") {
+        document.documentElement.style.display = "none";
+        window.location.replace("login.html");
+    }
+</script>
+
+<div class="container">
+
+  <div class="left-panel">
+    <img src="https://cdn-icons-png.flaticon.com/512/5787/5787016.png" class="logo">
+    <h1>SmartDine</h1>
+    <p>Restaurant Management Panel</p>
+  </div>
+
+  <div class="right-panel">
+    <form class="rform">
+      <h2>Create Account</h2>
+
+      <div class="row">
+        <div class="input-group">
+          <input id="fname" type="text" required>
+          <label>First Name *</label>
+          <span class="err" id="err-fname"></span>
+        </div>
+        <div class="input-group">
+          <input id="mname" type="text">
+          <label>Middle Name</label>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <input id="lname" type="text">
+        <label>Last Name</label>
+      </div>
+
+      <div class="input-group">
+        <input id="email" type="email" required>
+        <label>Email *</label>
+        <span class="err" id="err-email"></span>
+      </div>
+
+      <div class="input-group">
+        <input id="username" type="text" required>
+        <label>Username *</label>
+        <span class="err" id="err-uname"></span>
+
+        <div class="rules-box" id="uname-rules">
+          <div class="rule" id="rule-ulen">✗ More than 3 characters</div>
+          <div class="rule" id="rule-umax">✗ Max 30 characters</div>
+          <div class="rule" id="rule-ucase">✗ At least 1 uppercase letter</div>
+          <div class="rule" id="rule-uspace">✗ No spaces allowed</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group">
+          <input id="pass" type="password" required>
+          <label>Password *</label>
+          <span class="err" id="err-pass"></span>
+
+          <div class="rules-box" id="pass-rules">
+            <div class="rule" id="rule-plen">✗ Minimum 5 characters</div>
+            <div class="rule" id="rule-pupper">✗ At least 1 uppercase letter</div>
+            <div class="rule" id="rule-plower">✗ At least 1 lowercase letter</div>
+            <div class="rule" id="rule-pnum">✗ At least 1 number</div>
+            <div class="rule" id="rule-pspecial">✗ At least 1 special character (!@#$%^&*)</div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input id="cpass" type="password" required>
+          <label>Retype Password *</label>
+          <span class="err" id="err-cpass"></span>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <select id="role" required>
+          <option value="">Select Role *</option>
+          <option value="admin">Admin</option>
+          <option value="chef">Chef</option>
+        </select>
+        <span class="err" id="err-role"></span>
+      </div>
+
+      <label class="dob">Date of Birth *</label>
+      <input id="dob" type="date" required class="dob-input">
+      <span class="err" id="err-dob"></span>
+
+      <div class="consent">
+        <input id="consent" type="checkbox" required>
+        <span>I agree to the Terms & Conditions</span>
+      </div>
+      <span class="err" id="err-consent"></span>
+
+      <div id="form-success" class="form-success"></div>
+
+      <button id="bt" type="submit">Register</button>
+
+      <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
+    </form>
+  </div>
+
+</div>
+
+<script src="js/register.js"></script>
+</body>
+</html>

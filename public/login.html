@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartDine Login</title>
+<link rel="stylesheet" href="css/login.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Left -->
+  <div class="left">
+    <div class="illustration">
+      <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="login">
+    </div>
+    <h1>SmartDine</h1>
+    <p>Restaurant Management Panel</p>
+  </div>
+
+  <!-- Right -->
+  <div class="right">
+    <form class="form" id="form">
+
+      <h2>Login</h2>
+
+      <label>Username</label>
+      <input type="text" id="username" required>
+
+      <label>Password</label>
+      <input type="password" id="password" required>
+
+      <p id="login-msg" style="font-size:13px;min-height:18px;margin-top:8px;"></p>
+
+      <button id="bt2" type="submit">Login</button>
+
+      <!-- ❌ REGISTER REMOVED (admin controls users now) -->
+
+    </form>
+  </div>
+
+</div>
+
+<script src="js/login.js"></script>
+</body>
+</html>

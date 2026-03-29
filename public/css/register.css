@@ -1,0 +1,215 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+min-height:100vh;
+background:#0f0f0f;
+overflow-y:auto; /* ✅ FIXED SCROLL */
+}
+
+.container{
+display:flex;
+min-height:100vh; /* ✅ FIXED */
+width:100%;
+}
+
+/* LEFT PANEL */
+.left-panel{
+flex:1;
+background:linear-gradient(135deg,#5f2c82,#49a09d);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+}
+
+.logo{ width:80px; margin-bottom:12px; }
+.left-panel h1{ font-size:30px; margin-bottom:6px; }
+.left-panel p{ opacity:0.9; font-size:13px; }
+
+/* RIGHT PANEL */
+.right-panel{
+flex:1.2;
+background:white;
+display:flex;
+justify-content:center;
+align-items:flex-start; /* ✅ important */
+padding:20px 40px;
+overflow-y:auto; /* ✅ scroll enabled */
+}
+
+/* FORM */
+.rform{
+width:100%;
+max-width:420px;
+display:flex;
+flex-direction:column;
+}
+
+.rform h2{ margin-bottom:14px; font-size:20px; }
+
+/* INPUT GROUP */
+.input-group{ position:relative; margin-bottom:2px; }
+
+/* INPUTS */
+.input-group input,
+.input-group select{
+width:100%;
+padding:8px 10px;
+border:1px solid #ddd;
+border-radius:7px;
+outline:none;
+background:white;
+font-size:12px;
+}
+
+/* FOCUS */
+.input-group input:focus,
+.input-group select:focus{
+border-color:#5f2c82;
+box-shadow:0 0 5px rgba(95,44,130,0.2);
+}
+
+/* LABEL */
+.input-group label{
+position:absolute;
+left:10px;
+top:8px;
+color:#777;
+font-size:12px;
+transition:0.2s;
+background:white;
+padding:0 3px;
+pointer-events:none;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label{
+top:-7px;
+font-size:10px;
+color:#5f2c82;
+}
+
+/* 🔥 ROLE SELECT STYLING */
+.input-group select{
+cursor:pointer;
+appearance:none;
+-webkit-appearance:none;
+-moz-appearance:none;
+background-image: linear-gradient(45deg, transparent 50%, #5f2c82 50%),
+                  linear-gradient(135deg, #5f2c82 50%, transparent 50%);
+background-position: calc(100% - 15px) calc(50% - 3px),
+                     calc(100% - 10px) calc(50% - 3px);
+background-size: 5px 5px;
+background-repeat: no-repeat;
+}
+
+/* ERRORS */
+.err{
+display:block;
+font-size:10px;
+color:#e53e3e;
+min-height:13px;
+margin-top:1px;
+margin-bottom:2px;
+padding-left:3px;
+}
+
+/* SUCCESS */
+.form-success{
+font-size:12px;
+color:#22a35a;
+font-weight:600;
+min-height:16px;
+margin-top:2px;
+}
+
+/* RULE BOX */
+.rules-box{
+display:none;
+background:#f9f5ff;
+border:1px solid #e9d8fd;
+border-radius:7px;
+padding:6px 10px;
+margin-top:2px;
+margin-bottom:4px;
+}
+
+.rule{ font-size:10px; padding:2px 0; color:#999; transition:color 0.2s; }
+.rule-pass{ color:#22a35a !important; font-weight:600; }
+.rule-fail{ color:#e53e3e !important; }
+
+/* ROW */
+.row{ display:flex; gap:8px; }
+.row .input-group{ flex:1; }
+
+/* DOB */
+.dob{ font-size:11px; margin-top:4px; margin-bottom:3px; }
+
+.dob-input{
+padding:8px 10px;
+border:1px solid #ddd;
+border-radius:7px;
+margin-bottom:2px;
+width:100%;
+outline:none;
+font-size:12px;
+}
+
+.dob-input:focus{ border-color:#5f2c82; }
+
+/* CONSENT */
+.consent{ display:flex; align-items:center; gap:6px; font-size:11px; margin-top:6px; }
+
+/* BUTTON */
+.rform button{
+margin-top:10px;
+padding:10px;
+border:none;
+border-radius:7px;
+background:linear-gradient(135deg,#5f2c82,#49a09d);
+color:white;
+font-size:14px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.rform button:hover{
+transform:translateY(-2px);
+box-shadow:0 6px 16px rgba(0,0,0,0.3);
+}
+
+/* LOGIN LINK */
+.login-link{ margin-top:8px; font-size:12px; }
+.login-link a{ color:#5f2c82; text-decoration:none; font-weight:600; }
+
+/* ========================= */
+/* RESPONSIVE                */
+/* ========================= */
+
+@media(max-width:768px){
+    body{ overflow-y:auto; }
+    .container{ flex-direction:column; min-height:100vh; }
+    .left-panel{ padding:30px 20px; flex:none; }
+    .logo{ width:60px; }
+    .left-panel h1{ font-size:24px; }
+    .right-panel{ padding:24px 20px; overflow-y:auto; flex:none; }
+    .row{ flex-direction:column; gap:0; }
+}
+
+@media(max-width:480px){
+    .left-panel{ display:none; }
+    .right-panel{ padding:20px 16px; }
+    .rform h2{ font-size:18px; }
+}

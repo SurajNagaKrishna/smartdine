@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="top-bar">
+    <div>
+        <h1>SmartDine</h1>
+        <p>Admin Panel</p>
+    </div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
+<!-- NAV -->
+<div class="nav-links">
+    <a href="dashboard.html" class="active">⚙ Menu</a>
+    <a href="orders.html">📋 Orders</a>
+</div>
+
+<!-- ADD ITEM -->
+<div class="add-form">
+    <div class="section-title">Add New Item</div>
+
+    <div class="form-row">
+        <input type="text" id="new-name" placeholder="Item name">
+        <input type="number" id="new-price" placeholder="Price">
+
+        <select id="new-category">
+            <option value="">Category</option>
+            <option>Veg</option>
+            <option>Non-Veg</option>
+            <option>Starters</option>
+            <option>Pizza</option>
+            <option>Beverages</option>
+        </select>
+
+        <input type="file" id="new-image">
+        <button onclick="addItem()">+ Add</button>
+    </div>
+
+    <p id="add-msg" class="msg"></p>
+</div>
+
+<!-- MENU -->
+<div class="section-title">Menu Items</div>
+<div id="dboard"></div>
+
+<!-- USERS -->
+<div class="users-wrapper">
+
+    <div class="users-header" onclick="toggleUsers()">
+        👥 Manage Users
+        <span id="users-toggle">▼</span>
+    </div>
+
+    <div id="users-container" class="users-container">
+
+        <div class="users-top">
+            <div class="section-title">Users</div>
+
+            <!-- ✅ ONLY ONE BUTTON -->
+            <button class="btn-add-user"
+                onclick="window.location.href='register.html'">
+                + Create User
+            </button>
+        </div>
+
+        <div id="users"></div>
+
+    </div>
+
+</div>
+<script src="js/api.js"></script>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
