@@ -1,4 +1,3 @@
-// Show session-expired message if redirected here
 const urlMsg = new URLSearchParams(window.location.search).get("msg");
 if (urlMsg) {
     const msg = document.getElementById("login-msg");
@@ -20,31 +19,30 @@ document.getElementById("bt2").addEventListener("click", function (e) {
     }
 
     fetch("/login", {
-        method:  "POST",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ uname, pass })
+        body: JSON.stringify({ uname, pass })
     })
     .then(res => res.json().then(data => ({ status: res.status, data })))
     .then(({ status, data }) => {
         if (status === 200) {
-            // Store JWT + user info
-            localStorage.setItem("token", data.token);
+            localStorage.setItem("token", data.token);  // ← JWT token
             localStorage.setItem("role",  data.role);
             localStorage.setItem("uname", data.uname);
 
             msg.style.color = "#22a35a";
-            msg.innerText   = "✓ Login successful! Redirecting...";
+            msg.innerText = "✓ Login successful! Redirecting...";
 
             setTimeout(() => {
                 window.location.href = data.role === "admin" ? "dashboard.html" : "orders.html";
             }, 800);
         } else {
             msg.style.color = "#e53e3e";
-            msg.innerText   = data.message || "Invalid username or password.";
+            msg.innerText = data.message || "Invalid username or password.";
         }
     })
     .catch(() => {
         msg.style.color = "#e53e3e";
-        msg.innerText   = "Server error.";
+        msg.innerText = "Server error.";
     });
 });
